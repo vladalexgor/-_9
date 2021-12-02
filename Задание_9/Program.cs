@@ -14,70 +14,54 @@ namespace Задание_9
         {
             //a - первое число, b - второе число, n - результат вычисления, с - код операции
             Console.WriteLine("Вас приветствует калькулятор!\nВведите последовательно два числа.");
-            Console.Write("Первое число: ");
-            double a = 0;
-            double b = 0;
             double n;
             try
             {
-                a = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Первое число: ");
+                double a = Convert.ToDouble(Console.ReadLine());
                 Console.Write("Второе число: ");
-                try
+                double b = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Введите код операции, которую вы хотите совершить:\n   1 - сложение\n   2 - вычитание\n   3 - произведение\n   4 - деление");
+                Console.Write("Ваш выбор: ");
+                int c = Convert.ToInt32(Console.ReadLine());
+                switch (c)
                 {
-                    b = Convert.ToDouble(Console.ReadLine());
-                    Console.WriteLine("Введите код операции, которую вы хотите совершить:\n   1 - сложение\n   2 - вычитание\n   3 - произведение\n   4 - деление");
-                    Console.Write("Ваш выбор: ");
-                    try
-                    {
-                        int c = Convert.ToInt32(Console.ReadLine());
-                        switch (c)
+                    case 1:
                         {
-                            case 1:
-                                {
-                                    n = a + b;
-                                    Console.WriteLine("Результат вычисления равен: {0}", n);
-                                    break;
-                                }
-                            case 2:
-                                {
-                                    n = a - b;
-                                    Console.WriteLine("Результат вычисления равен: {0}", n);
-                                    break;
-                                }
-                            case 3:
-                                {
-                                    n = a * b;
-                                    Console.WriteLine("Результат вычисления равен: {0}", n);
-                                    break;
-                                }
-                            case 4:
-                                {
-                                    n = a / b;
-                                    if (Double.IsInfinity(n) || double.IsNaN(n))
-                                    {
-                                        Console.WriteLine("Ошибка! Деление на 0.");
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("Результат вычисления равен: {0:f2}", n);
-                                    }
-                                    break;
-                                }
-                            default:
-                                {
-                                    Console.WriteLine("Введенный код операции находится вне диапазона представленных на выбор чисел.");
-                                    break;
-                                }
+                            n = a + b;
+                            Console.WriteLine("Результат вычисления равен: {0}", n);
+                            break;
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
+                    case 2:
+                        {
+                            n = a - b;
+                            Console.WriteLine("Результат вычисления равен: {0}", n);
+                            break;
+                        }
+                    case 3:
+                        {
+                            n = a * b;
+                            Console.WriteLine("Результат вычисления равен: {0}", n);
+                            break;
+                        }
+                    case 4:
+                        {
+                            n = a / b;
+                            if (Double.IsInfinity(n) || double.IsNaN(n))
+                            {
+                                Console.WriteLine("Ошибка! Деление на 0.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Результат вычисления равен: {0:f2}", n);
+                            }
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("Введенный код операции находится вне диапазона представленных на выбор чисел.");
+                            break;
+                        }
                 }
             }
             catch (Exception ex)
